@@ -1,0 +1,53 @@
+# smart_analyzer.py
+
+def find_missing_number(arr):
+    n = len(arr) + 1
+    expected_sum = n * (n + 1) // 2
+    actual_sum = sum(arr)
+    return expected_sum - actual_sum
+
+
+def check_even_odd(numbers):
+    result = {}
+    for num in numbers:
+        result[num] = "Even" if num % 2 == 0 else "Odd"
+    return result
+
+
+def sort_numbers(numbers):
+    return sorted(numbers)
+
+
+def find_duplicates(numbers):
+    seen = set()
+    duplicates = set()
+    
+    for num in numbers:
+        if num in seen:
+            duplicates.add(num)
+        else:
+            seen.add(num)
+    
+    return list(duplicates)
+
+
+def main():
+    numbers = [1, 2, 4, 5, 6, 2, 3, 5]
+
+    print("Original List:", numbers)
+
+    print("\nSorted List:", sort_numbers(numbers))
+
+    print("\nEven/Odd Check:")
+    for k, v in check_even_odd(numbers).items():
+        print(f"{k} → {v}")
+
+    print("\nDuplicates:", find_duplicates(numbers))
+
+    # For missing number, use proper sequence
+    test = [1, 2, 4, 5]
+    print("\nMissing Number:", find_missing_number(test))
+
+
+if __name__ == "__main__":
+    main()
